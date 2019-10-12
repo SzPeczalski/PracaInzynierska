@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import sample.TextFieldNumberValidate?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <SplitPane dividerPositions="0.34782608695652173" prefHeight="378.0" prefWidth="600.0">
+         <items>
+            <AnchorPane maxWidth="205.0" minHeight="0.0" minWidth="200.0" prefHeight="376.0" prefWidth="205.0">
+               <children>
+                  <Label layoutX="2.0" prefHeight="130.0" prefWidth="205.0" text="Delta Rule Neuron Learning App" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="chooseFunction" layoutX="13.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#clickCF" prefHeight="25.0" prefWidth="180.0" text="Wybór funkcji aktywacji" />
+                  <Button fx:id="learningVectors" layoutX="13.0" layoutY="176.0" mnemonicParsing="false" onMouseClicked="#clickLV" prefHeight="25.0" prefWidth="180.0" text="Wektory uczące" />
+                  <Button fx:id="beginningVectors" layoutX="14.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#clickBV" prefHeight="25.0" prefWidth="180.0" text="Wektor wag początkowych" />
+                  <Button fx:id="reset" layoutX="13.0" layoutY="303.0" mnemonicParsing="false" onAction="#resetApp" prefHeight="25.0" prefWidth="180.0" text="Reset" />
+                  <Button fx:id="end" cancelButton="true" layoutX="14.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#closeButtonAction" prefHeight="25.0" prefWidth="180.0" text="Wyjście" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="376.0" prefWidth="387.0">
+               <children>
+                  <TabPane fx:id="pane" prefHeight="396.0" prefWidth="487.0" tabClosingPolicy="UNAVAILABLE">
+                     <tabs>
+                        <Tab fx:id="first" text="Funkcja aktywacji">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="479.0" text="Wybierz jedną z funkcji aktywacji spośród podanych:" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <GridPane layoutX="14.0" layoutY="55.0" prefHeight="200.0" prefWidth="350.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="350.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="0.0" prefWidth="0.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <RadioButton fx:id="firstrb" mnemonicParsing="false" selected="true" text="Funkcja liniowa">
+                                             <graphic>
+                                                <ImageView fitHeight="100.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="file:/D:/Users/User1/Desktop/funkcjaliniowa.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="group" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="secondrb" mnemonicParsing="false" text="Funkcja sigmoidalna bipolarna" toggleGroup="$group" GridPane.rowIndex="1">
+                                             <graphic>
+                                                <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="file:/D:/Users/User1/Desktop/funkcjasigmobipol.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </RadioButton>
+                                          <RadioButton fx:id="thirdrb" mnemonicParsing="false" prefHeight="50.0" prefWidth="309.0" text="Funkcja sigmoidalna unipolarna" toggleGroup="$group" GridPane.rowIndex="2">
+                                             <graphic>
+                                                <ImageView fitHeight="214.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="file:/D:/Users/User1/Desktop/funkcjasigmounipol.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </RadioButton>
+                                       </children>
+                                    </GridPane>
+                                    <Button fx:id="save1" layoutX="337.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#clickSave1" text="Zapisz" />
+                                 </children></AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="second" text="Wektory uczące">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="5.0" prefHeight="25.0" text="Wybierz czy wykorzystasz jedną lub dwie pary uczące:" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <AnchorPane fx:id="anchorpane1" layoutY="54.0" maxWidth="140.0" minWidth="110.0" prefHeight="120.0" prefWidth="130.0">
+                                       <children>
+                                          <Pane layoutY="1.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="60.0" text="Podaj X1:" />
+                                                <TextFieldNumberValidate layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" fx:id="x_1" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="31.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="60.0" text="Podaj X2:" />
+                                                <TextFieldNumberValidate layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" fx:id="x_2" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="61.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" layoutY="-1.0" prefHeight="25.0" prefWidth="60.0" text="Podaj X3:" />
+                                                <TextFieldNumberValidate layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" fx:id="x_3" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="90.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="-1.0" prefHeight="25.0" prefWidth="60.0" text="Podaj X4:" />
+                                                <TextFieldNumberValidate layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" fx:id="x_4" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorpane2" layoutY="198.0" maxWidth="140.0" minWidth="110.0" prefHeight="120.0" prefWidth="130.0">
+                                       <children>
+                                          <Pane layoutY="1.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="60.0" text="Podaj Z1:" />
+                                                <TextFieldNumberValidate fx:id="z_1" layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="31.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="60.0" text="Podaj Z2:" />
+                                                <TextFieldNumberValidate fx:id="z_2" layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="61.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" layoutY="-1.0" prefHeight="25.0" prefWidth="60.0" text="Podaj Z3:" />
+                                                <TextFieldNumberValidate fx:id="z_3" layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="90.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="-1.0" prefHeight="25.0" prefWidth="60.0" text="Podaj Z4:" />
+                                                <TextFieldNumberValidate fx:id="z_4" layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorpane3" layoutX="216.0" layoutY="54.0" maxWidth="140.0" minWidth="110.0" prefHeight="120.0" prefWidth="130.0">
+                                       <children>
+                                          <Pane layoutY="1.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="60.0" text="Podaj Y1:" />
+                                                <TextFieldNumberValidate fx:id="y_1" layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="31.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="60.0" text="Podaj Y2:" />
+                                                <TextFieldNumberValidate fx:id="y_2" layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="61.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" layoutY="-1.0" prefHeight="25.0" prefWidth="60.0" text="Podaj Y3:" />
+                                                <TextFieldNumberValidate fx:id="y_3" layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="90.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="-1.0" prefHeight="25.0" prefWidth="60.0" text="Podaj Y4:" />
+                                                <TextFieldNumberValidate fx:id="y_4" layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorpane4" layoutX="216.0" layoutY="197.0" maxWidth="140.0" minWidth="110.0" prefHeight="120.0" prefWidth="130.0">
+                                       <children>
+                                          <Pane layoutY="1.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="60.0" text="Podaj Z1:" />
+                                                <TextFieldNumberValidate fx:id="z_11" layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="31.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="60.0" text="Podaj Z2:" />
+                                                <TextFieldNumberValidate fx:id="z_12" layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="61.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" layoutY="-1.0" prefHeight="25.0" prefWidth="60.0" text="Podaj Z3:" />
+                                                <TextFieldNumberValidate fx:id="z_13" layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="90.0" maxHeight="25.0" maxWidth="200.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="-1.0" prefHeight="25.0" prefWidth="60.0" text="Podaj Z4:" />
+                                                <TextFieldNumberValidate fx:id="z_14" layoutX="75.0" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                    <RadioButton fx:id="vrb1" layoutX="328.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#closesecondpow" selected="true" text="Jedna para" toggleGroup="$group" />
+                                    <RadioButton fx:id="vrb2" layoutX="411.0" layoutY="9.0" mnemonicParsing="false" text="Dwie pary" toggleGroup="$group" />
+                                    <Button fx:id="save2" layoutX="368.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#clickSave2" text="Zaakceptuj" />
+                                 </children></AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="third" text="Wektor wag początkowych">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Podaj kolejne elementy wektora wag początkowych:">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <AnchorPane layoutX="14.0" layoutY="55.0" prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane prefHeight="25.0" prefWidth="140.0">
+                                             <children>
+                                                <Label layoutX="4.0" layoutY="4.0" text="Podaj W(0)_1:" />
+                                                <TextFieldNumberValidate fx:id="w_01" layoutX="87.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="34.0" prefHeight="25.0" prefWidth="140.0">
+                                             <children>
+                                                <Label layoutX="4.0" layoutY="4.0" text="Podaj W(0)_2:" />
+                                                <TextFieldNumberValidate fx:id="w_02" layoutX="87.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="68.0" prefHeight="25.0" prefWidth="140.0">
+                                             <children>
+                                                <Label layoutX="4.0" layoutY="4.0" text="Podaj W(0)_3:" />
+                                                <TextFieldNumberValidate fx:id="w_03" layoutX="87.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutY="103.0" prefHeight="25.0" prefWidth="140.0">
+                                             <children>
+                                                <Label layoutX="4.0" layoutY="4.0" text="Podaj W(0)_4:" />
+                                                <TextFieldNumberValidate fx:id="w_04" layoutX="87.0" prefHeight="25.0" prefWidth="50.0" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                    <Button fx:id="save3" layoutX="331.0" layoutY="288.0" mnemonicParsing="false" onMouseClicked="#clickSave3" text="Zapisz" />
+                                 </children></AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="fourth" text="Uczenie neuronów">
+                           <content>
+                              <AnchorPane fx:id="anchorpane5" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="learn" layoutX="203.0" layoutY="58.0" mnemonicParsing="false" onMouseClicked="#clickLearn" text="Ucz wektory" />
+                                    <Label layoutX="9.0" prefHeight="49.0" prefWidth="470.0" text="Naciśnij przycisk aby zobaczyć w którym kroku zostaną nauczone wprowadzone wektory:" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children></AnchorPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </children></AnchorPane>
+         </items>
+      </SplitPane>
+      <Label prefHeight="23.0" prefWidth="612.0" text="Autor: Szymon Pęczalski" />
+   </children>
+</VBox>
