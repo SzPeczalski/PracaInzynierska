@@ -29,9 +29,6 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Button fx:id="chooseFunction" layoutX="13.0" layoutY="135.0" mnemonicParsing="false" onMouseClicked="#clickCF" prefHeight="25.0" prefWidth="180.0" text="Wybór funkcji aktywacji" />
-                  <Button fx:id="learningVectors" layoutX="13.0" layoutY="176.0" mnemonicParsing="false" onMouseClicked="#clickLV" prefHeight="25.0" prefWidth="180.0" text="Wektory uczące" />
-                  <Button fx:id="beginningVectors" layoutX="14.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#clickBV" prefHeight="25.0" prefWidth="180.0" text="Wektor wag początkowych" />
                   <Button fx:id="reset" layoutX="13.0" layoutY="303.0" mnemonicParsing="false" onAction="#resetApp" prefHeight="25.0" prefWidth="180.0" text="Reset" />
                   <Button fx:id="end" cancelButton="true" layoutX="14.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#closeButtonAction" prefHeight="25.0" prefWidth="180.0" text="Wyjście" />
                </children>
@@ -226,8 +223,11 @@
                                           </Pane>
                                        </children>
                                     </AnchorPane>
-                                    <RadioButton fx:id="vrb1" layoutX="328.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#closesecondpow" selected="true" text="Jedna para" toggleGroup="$group" />
-                                    <RadioButton fx:id="vrb2" layoutX="411.0" layoutY="9.0" mnemonicParsing="false" text="Dwie pary" toggleGroup="$group" />
+                                    <RadioButton fx:id="vrb1" layoutX="328.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#closesecondpow" selected="true" text="Jedna para">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="group1" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="vrb2" layoutX="411.0" layoutY="9.0" mnemonicParsing="false" selected="true" text="Dwie pary" toggleGroup="$group1" />
                                     <Button fx:id="save2" layoutX="368.0" layoutY="318.0" mnemonicParsing="false" onMouseClicked="#clickSave2" text="Zaakceptuj" />
                                  </children></AnchorPane>
                            </content>
