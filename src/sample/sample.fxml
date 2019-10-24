@@ -277,12 +277,16 @@
                            <content>
                               <AnchorPane fx:id="anchorpane5" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Button fx:id="learn" layoutX="203.0" layoutY="58.0" mnemonicParsing="false" onMouseClicked="#clickLearn" text="Ucz wektory" />
-                                    <Label layoutX="9.0" prefHeight="49.0" prefWidth="470.0" text="Naciśnij przycisk aby zobaczyć w którym kroku zostaną nauczone wprowadzone wektory:" textAlignment="CENTER" wrapText="true">
-                                       <font>
-                                          <Font name="System Bold" size="15.0" />
-                                       </font>
-                                    </Label>
+                                    <Label layoutX="15.0" layoutY="17.0" text="Podaj współczynnik uczenia:" />
+                                    <TextFieldNumberValidate fx:id="learning_index" layoutX="170.0" layoutY="13.0" maxWidth="100.0" minWidth="50.0" prefWidth="50.0" />
+                                    <Label fx:id="labelCB" layoutX="244.0" layoutY="17.0" text="Podaj krok:" />
+                                    <TextFieldNumberValidate fx:id="step" layoutX="307.0" layoutY="13.0" maxHeight="100.0" minWidth="50.0" prefWidth="50.0" />
+                                    <Button fx:id="save4" layoutX="380.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#clickSave4" text="Zapisz" />
+                                    <Button fx:id="learn" layoutX="207.0" layoutY="88.0" mnemonicParsing="false" onMouseClicked="#clickLearn" text="Ucz wektory" />
+                                    <Button fx:id="openlog" layoutX="15.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#openLog" text="Otwórz log" />
+                                    <Button fx:id="open_results" layoutX="123.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#openResults" text="Pokaż wyniki" />
+                                    <Button fx:id="clear_log" layoutX="370.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#clearLog" text="Wyczyść log" />
+                                    <Button fx:id="clear_results" layoutX="240.0" layoutY="316.0" mnemonicParsing="false" onAction="#clearResults" text="Wyczyść wyniki" />
                                  </children></AnchorPane>
                            </content>
                         </Tab>

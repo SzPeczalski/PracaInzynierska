@@ -1,0 +1,21 @@
+--------------------------------------------------------------------------------------------------------
+
+                             LOG -  DELTA RULE NEURON LEARNING APPLICATION                              
+                                        19-10-2019r.  godz: 23:18:36                                     
+
+--------------------------------------------------------------------------------------------------------
+Wybrano funkcję liniową!
+Wprowadzono następującą parę wektorów: X = [1,2,3,4] oraz Z=[2,2,2,2]
+Wprowadzono następujący wektor wag początkowych: W = [0,0,0,0]
+--------------------------------------------------------------------------------------------------------
+Wektor wag początkowych kroku W(0) = [0.0 ; 0.0 ; 0.0 ; 0.0]
+Wektor wag początkowych kroku W(1) = [0,1 ; 0,2 ; 0,3 ; 0,4]
+Wektor wag początkowych kroku W(2) = [0,05 ; 0,1 ; 0,15 ; 0,2]
+Wektor wag początkowych kroku W(3) = [0,075 ; 0,15 ; 0,225 ; 0,3]
+Wektor wag początkowych kroku W(4) = [0,0625 ; 0,125 ; 0,1875 ; 0,25]
+Wektor wag początkowych kroku W(5) = [0,06875 ; 0,1375 ; 0,20625 ; 0,275]
+Wektor wag początkowych kroku W(6) = [0,065625 ; 0,13125 ; 0,196875 ; 0,2625]
+Wektor wag początkowych kroku W(7) = [0,067187 ; 0,134375 ; 0,201563 ; 0,26875]
+Wektor wag początkowych kroku W(8) = [0,066406 ; 0,132812 ; 0,199219 ; 0,265625]
+Wektor wag początkowych kroku W(9) = [0,066797 ; 0,133594 ; 0,200391 ; 0,267188]
+Wektor wag początkowych kroku W(10) = [0,066602 ; 0,133203 ; 0,199805 ; 0,266406]

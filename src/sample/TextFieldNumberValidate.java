@@ -12,7 +12,7 @@ public class TextFieldNumberValidate extends TextField {
 
     @Override
     public void replaceText(int i, int il, String string){
-        if(string.matches("[0-9]") || string.isEmpty()){
+        if(string.matches("[0-9-.]") || string.isEmpty()){
             super.replaceText(i, il, string);
         }
     }

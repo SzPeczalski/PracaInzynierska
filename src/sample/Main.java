@@ -19,10 +19,17 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    public void wykres() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("wykres.fxml"));
+        Stage wykres = new Stage();
+        wykres.setScene(new Scene(root, 700, 400));
+        wykres.setTitle("Wykres");
+        wykres.show();
+    }
+
+
     public static void main(String[] args) {
         launch(args);
 
     }
-
-
 }
